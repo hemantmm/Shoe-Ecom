@@ -1,0 +1,154 @@
+.display_header {
+    background-color: rgb(211, 211, 211);
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.display_header_link {
+    margin-left: 5rem;
+    font-size: large;
+    /* color: black; */
+    text-decoration: underline;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.display_header_link:hover
+{
+    background-color: black;
+    color: #fff;
+    width: 5%;
+}
+
+.left span {
+    position: relative;
+    color: black;
+    top: 1rem;
+    left: 5rem;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.display_items {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin-left: 1.25rem;
+    padding: 4rem;
+    color: black;
+}
+
+.display_items_div {
+    border: 2px solid;
+    width: 24rem;
+}
+
+.display_items_div img {
+    width: 23.8rem;
+    height: 23rem;
+}
+
+.display_title {
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-left: 2.5rem;
+}
+
+.display_price {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-left: 2.5rem;
+
+}
+
+.display_description {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    margin-left: 2.5rem;
+}
+
+.display_des {
+    margin-left: 2.5rem;
+}
+
+.Cart_Display_box {
+    border: 2px solid ;
+    height: 20rem;
+    width: 30rem;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    /* width: 100%; */
+}
+
+.Cart_Display_box_item {
+    /* width: 100%; */
+    display: flex;
+    flex-direction: column;
+    margin-top: 1.75rem;
+    justify-content: space-around;
+    height: 10rem;
+    margin-left: 1.25rem;
+    position: relative;
+    width: 100%;
+}
+
+.Cart_display_price {
+    display: flex;
+    flex-direction: column;
+    margin-top: 2.5rem;
+    margin-left: 12rem;
+    justify-content: space-around;
+    height: 12rem;
+    /* padding: 90px; */
+}
+
+.Cart_display_stock {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    color: rgb(255, 97, 97);
+    margin-bottom: 3rem;
+}
+
+.Cart_Display_inc {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    width: 5rem;
+    margin-left: 2.5rem;
+    right: 4rem;
+}
+
+.Cart_Display_inc button {
+    background-color: red;
+    color: #fff;
+    /* font-size: x-large; */
+    cursor: pointer;
+}
+
+.Cart_Display_inc span {
+    margin-top: 0.2rem;
+    /* color: white; */
+    font-size: x-large;
+}
+
+.Cart_Display_Add {
+    position: relative;
+    top: 15rem;
+    right: 21rem;
+    cursor: pointer;
+}
+
+.Cart_Display_Button
+{
+    width: 12rem;
+    font-size: 1rem; 
+line-height: 2rem;
+position: absolute;
+/* right: 1rem; */
+/* right: 6rem; */
+/* left: 1rem; */
+cursor: pointer;
+top: 1.5rem;
+}

@@ -1,0 +1,10 @@
+cookies
+
+change image when hover
+
+signout
+
+to check whether user is logged in or not
+
+wishlist
+
