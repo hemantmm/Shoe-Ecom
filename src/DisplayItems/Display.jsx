@@ -5,64 +5,70 @@ import './Display.css'
 import Navbar from '../Components/Navbar';
 // import Cart from '../Components/Cart';
 import { useContext } from 'react';
-import { LevelContext } from '../LevelContext';
+import { LevelContext } from '../Context/LevelContext';
 
 
 import { IoReturnUpBackSharp } from 'react-icons/io5'
 import Cart from '../Cartss/Cart';
 
 
-function Display({children}) {
+function Display({ children }) {
 
-  
-  
-  
+
+
+  const { setShowNum } = useContext(LevelContext)
+
   const { productId } = useParams();
   const thisProduct = data.find(prod => prod.id == productId)
   const { image, name, stars, reviews, price, id } = thisProduct
-  
+
   console.log(thisProduct.title);
-  
-  
+
+
   let [num, setNum] = useState(1);
   let incNum = () => {
     if (num < 20) {
       setNum(Number(num) + 1);
+      // setShowNum(nums => nums + 1)
     }
   };
   let decNum = () => {
     if (num > 0) {
       setNum(num - 1);
+      // setShowNum(nums => nums + 1)
     }
   }
   let handleChange = (e) => {
     setNum(e.target.value);
   }
-  
+
   const navigate = useNavigate()
 
   const handleCart = () => {
     navigate('/carts')
   }
-  
+
   const handleBack = () => {
     navigate('/mens')
   }
-  
-  const [cart,setCart]=useState([])
-  
-  const addToCart=(thisProduct)=>{
+
+  const [cart, setCart] = useState([])
+
+  const addToCart = (thisProduct) => {
     console.log("cart");
-    setCart([...cart,{...thisProduct}])
+    setCart([...cart, { ...thisProduct }])
     navigate('/carts')
   }
-  
-  
-  const values=num  
-  
+
+
+  const value = num;
+  console.log(value);
+
+  // const level = useContext(LevelContext);
+
   return (
     <>
-    {/* <LevelContext.Provider value={values}>{children}</LevelContext.Provider> */}
+      {/* <LevelContext.Provider value={values}>{children}</LevelContext.Provider> */}
       <Navbar />
       {/* <Cart cart={cart} /> */}
       <div className="display_header">
@@ -104,8 +110,11 @@ function Display({children}) {
 
               <div className='Cart_Display_inc'>
                 <button class="" type="button" onClick={decNum}>-</button>
-              <span value={num} onChange={handleChange}>{num}</span>
-                <button class="bg-blue-500" type="button" onClick={incNum}>+</button>
+                <span value={num} onChange={handleChange}>{num}</span>
+                <button class="bg-blue-500" type="button" onClick={() => {
+                  setNum(num + 1);
+                  setShowNum(nums => nums + 1)
+                }}>+</button>
               </div>
               {/* <input type="text" name="" className='input_number' /> */}
 
@@ -113,13 +122,13 @@ function Display({children}) {
 
 
             <div className='Cart_Display_Add'>
-              <button onClick={()=>addToCart(thisProduct)} className='Cart_Display_Button w-32'>
+              <button onClick={() => addToCart(thisProduct)} className='Cart_Display_Button w-32'>
                 {/* <Link to='/carts'> */}
                 {/* <Cart price="1"/ > */}
                 Add to cart
                 {/* </Link> */}
               </button>
-
+              {/* <LevelContext.Provider value={num}></LevelContext.Provider> */}
               <p>{num}</p>
 
             </div>
@@ -128,7 +137,7 @@ function Display({children}) {
 
         </div>
       </div>
-{/* <Cart value={value} /> */}
+      {num > 0 && <Cart value={num} />}
     </>
   )
 }

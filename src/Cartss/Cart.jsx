@@ -1,13 +1,15 @@
-import React, { useState } from 'react'
+import React, { useState, useContext } from 'react'
 import { Link, useParams } from 'react-router-dom';
 import data from './CartDatas'
 import './Cart.css'
 // import Display from '../Display/Display';
 import Display from '../DisplayItems/Display';
-import { LevelContext } from '../LevelContext';
+import { LevelContext } from '../Context/LevelContext';
 
-function Cart() {
-// function Cart({value,children}) {
+// function Cart() {
+function Cart({ value }) {
+
+  const { showNum,first } = useContext(LevelContext)
 
 
 
@@ -15,19 +17,23 @@ function Cart() {
   // const thisProduct = data.find(prod => prod.id == productId)
   // const {productItems} = cart
 
-  let [num, setNum] = useState(1);
-  console.log({value});
+  // let [num, setNum] = useState(1);
+  console.log(typeof showNum);
+  // let num = useContext(LevelContext);
+  // num=value;
 
 
   return (
+
     <>
 
-    <h1>{value}</h1>
-    <h2>hello</h2>
-    {/* <h2>{cart}</h2>
+      {showNum>0 && <h2>{first}</h2>}
+      <h2>hello</h2>
+      {/* <h2>{first}</h2> */}
+      {/* <h2>{cart}</h2>
     <h3>{cart.length}</h3> */}
 
-     {/* <div className="display_header">
+      {/* <div className="display_header">
 
 <div className="left">
   <span className="">Products</span>
